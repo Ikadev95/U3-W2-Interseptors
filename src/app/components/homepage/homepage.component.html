@@ -1,1 +1,10 @@
-<p>homepage works!</p>
+<main>
+  <div class="container">
+    <h1>Photos</h1>
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3" *ngFor="let photo of photos">
+        <app-card-photo [photo]="photo"></app-card-photo>
+      </div>
+    </div>
+  </div>
+</main>

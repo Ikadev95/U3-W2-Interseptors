@@ -1,1 +1,8 @@
-<p>card-photo works!</p>
+<div class="card">
+  <img [src]="photo.thumbnailUrl" class="card-img-top" [alt]="photo.title">
+  <div class="card-body">
+    <h5 class="card-title">{{photo.title}}</h5>
+    <p class="card-text">album-id: {{photo.albumId}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
