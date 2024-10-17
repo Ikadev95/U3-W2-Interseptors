@@ -4,6 +4,11 @@
       <h1>Photos</h1>
       <p class="m-0">{{likes.length}}❤️</p>
     </div>
+
+    <div *ngIf="isLoading">Caricamento</div>
+    <div *ngIf="photos.length === 0 && !isLoading && !errorMessage" class="alert alert-info">non ci sono foto</div>
+    <div *ngIf="errorMessage" class="alert alert-danger"> {{errorMessage}}</div>
+
     <div class="row row-gap-3">
       <div class="col-12 col-md-4 col-lg-3" *ngFor="let photo of photos">
         <app-card-photo [photo]="photo"
