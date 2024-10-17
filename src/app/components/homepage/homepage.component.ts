@@ -9,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
   photos: iPhoto[] = []
+  likes: iPhoto[] =[]
 
   constructor(private photoSrv: PhotoSrvService){}
-  ngOnInit(): void {
+  onPhotoDeleted(id: number) {
+    this.photos = this.photos.filter(photo => photo.id !== id);
+  }
 
+  ngOnInit(): void {
     this.photoSrv.getAllPhotos().subscribe((photos:iPhoto[]) => this.photos = photos)
+    this.photoSrv.likes$.subscribe( el => {
+      if(!(this.likes.some(photo => photo.id === el.id)))
+      this.likes.push(el)})
   }
 
 }

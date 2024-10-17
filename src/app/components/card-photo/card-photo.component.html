@@ -3,6 +3,7 @@
   <div class="card-body">
     <h5 class="card-title">{{photo.title}}</h5>
     <p class="card-text">photo-id: {{photo.id}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <button (click)="deletePhoto(photo.id)" class="btn btn-danger me-2">Elimina</button>
+    <button (click)="addToPref(photo)" class="btn btn-success">👍🏻</button>
   </div>
 </div>
