@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CardPhotoComponent } from './components/card-photo/card-photo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ErrorInterceptor } from './error.interceptor';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { ErrorInterceptor } from './error.interceptor';
     AppRoutingModule
   ],
   providers: [
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi(),),
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
