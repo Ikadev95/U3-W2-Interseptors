@@ -14,7 +14,7 @@ export class PhotoSrvService {
 
   getAllPhotos(){
     return this.http.get<iPhoto[]>(this.myUrl).pipe(
-      map(photos  => photos.slice(0,20))
+      map(photos  => photos.slice(0,16))
     )
   }
 }
